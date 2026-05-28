@@ -1,0 +1,36 @@
+{
+  "issues": [
+    {
+      "number": 2,
+      "title": "Replace Optional[X] with X | None in superset/exceptions.py",
+      "url": "https://github.com/acabreira/superset/issues/2",
+      "processed_at": "2026-05-27T23:42:10.514Z"
+    },
+    {
+      "number": 10,
+      "title": "Replace Union[int, UUID] with int | UUID in superset/key_value/types.py",
+      "url": "https://github.com/acabreira/superset/issues/10",
+      "processed_at": "2026-05-27T23:53:10.409Z"
+    }
+  ],
+  "sessions": [
+    {
+      "issue_number": 2,
+      "issue_title": "Replace Optional[X] with X | None in superset/exceptions.py",
+      "issue_url": "https://github.com/acabreira/superset/issues/2",
+      "session_id": "6b21331c6bc64a59adce9f02bec86a1a",
+      "status": "success",
+      "pr_url": "https://github.com/acabreira/superset/pull/9",
+      "created_at": "2026-05-27T23:42:10.523Z"
+    },
+    {
+      "issue_number": 10,
+      "issue_title": "Replace Union[int, UUID] with int | UUID in superset/key_value/types.py",
+      "issue_url": "https://github.com/acabreira/superset/issues/10",
+      "session_id": "9d37218774ee49d6ba057dfb07f70010",
+      "status": "success",
+      "pr_url": "https://github.com/acabreira/superset/pull/11",
+      "created_at": "2026-05-27T23:53:10.420Z"
+    }
+  ]
+}
