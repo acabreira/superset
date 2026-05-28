@@ -22,7 +22,7 @@ Enhanced error schemas for MCP chart generation with contextual information
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Any, Dict, List
+from typing import Any
 
 from pydantic import BaseModel, computed_field, ConfigDict, Field, model_validator
 
@@ -84,7 +84,7 @@ class ValidationError(BaseModel):
     provided_value: Any = Field(..., description="Value that was provided")
     error_type: str = Field(..., description="Type of validation error")
     message: str = Field(..., description="Human-readable error message")
-    suggestions: List[ColumnSuggestion] = Field(
+    suggestions: list[ColumnSuggestion] = Field(
         default_factory=list, description="Suggested alternatives"
     )
 
@@ -103,10 +103,10 @@ class DatasetContext(BaseModel):
         description="Schema name",
     )
     database_name: str = Field(..., description="Database name")
-    available_columns: List[Dict[str, Any]] = Field(
+    available_columns: list[dict[str, Any]] = Field(
         default_factory=list, description="Available columns with metadata"
     )
-    available_metrics: List[Dict[str, Any]] = Field(
+    available_metrics: list[dict[str, Any]] = Field(
         default_factory=list, description="Available metrics with metadata"
     )
 
@@ -115,13 +115,13 @@ class ChartGenerationError(MCPBaseError):
     """Enhanced error response for chart generation failures"""
 
     details: str = Field(..., description="Detailed error explanation")
-    validation_errors: List[ValidationError] = Field(
+    validation_errors: list[ValidationError] = Field(
         default_factory=list, description="Specific field validation errors"
     )
     dataset_context: DatasetContext | None = Field(
         None, description="Dataset information for context"
     )
-    query_info: Dict[str, Any] | None = Field(
+    query_info: dict[str, Any] | None = Field(
         None, description="Query execution details"
     )
     help_url: str | None = Field(
@@ -133,12 +133,12 @@ class ChartGenerationResponse(BaseModel):
     """Enhanced chart generation response with detailed error handling"""
 
     success: bool = Field(..., description="Whether chart generation succeeded")
-    chart: Dict[str, Any] | None = Field(
+    chart: dict[str, Any] | None = Field(
         None, description="Chart information if successful"
     )
     error: ChartGenerationError | None = Field(
         None, description="Error details if failed"
     )
-    performance: Dict[str, Any] | None = Field(None, description="Performance metadata")
+    performance: dict[str, Any] | None = Field(None, description="Performance metadata")
     schema_version: str = Field(default="2.0", description="Response schema version")
     api_version: str = Field(default="v1", description="API version")
